@@ -5,6 +5,7 @@ import { useState } from "react";
 function App() {
     const [todos, setTodos] = useState([]);
     const [editId, setEditId] = useState(null);
+    const [newTodo, setNewTodo] = useState("");
 
     useEffect(() => {
         let canceled = false;
@@ -90,9 +91,34 @@ function App() {
         },
     ];
 
+    const handleAddTodo = () => {
+        if (newTodo.trim() !== "") {
+          // Create a new to-do item
+          const newTodoItem = {
+            userId: Math.floor(Math.random() * 10), // Random userId for demonstration
+            id: Date.now(), // Unique ID based on timestamp
+            title: newTodo,
+            completed: false,
+          };
+    
+          // Update the state to include the new to-do item
+          setTodos((prevTodos) => [...prevTodos, newTodoItem]);
+          setNewTodo(""); // Clear the input field
+        }
+    };
+
     return (
         <div className="App">
             <div className="todo-wrapper">
+                {/* New input field for adding a to-do */}
+                <input
+                    type="text"
+                    placeholder="Add a new to-do"
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
+                />
+                <button onClick={handleAddTodo}>Add</button>
+
                 <ul>
                     {!!todos.length &&
                         todos.map((todo) => (
@@ -142,6 +168,7 @@ function App() {
             </div>
         </div>
     );
+
 }
 
 export default App;
