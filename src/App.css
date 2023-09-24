@@ -1,21 +1,59 @@
-* {
-    background-color: #999;
-}
-.todo-wrapper {
-    width: 50rem;
-    margin: 4rem auto;
-}
-
-.todo {
-    margin: 0.8rem 0;
-}
-
-.todo-title {
-    font-style: bold;
-    font-size: 1.5rem;
-}
-
-.checked {
+/* App.css */
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .tabs {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .todo {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .todo-title {
+    flex-grow: 1;
+    font-size: 18px;
+  }
+  
+  .todo-title.checked {
     text-decoration: line-through;
-    color: red;
-}
+    color: #888;
+  }
+  
+  button.del-button {
+    background-color: #dc3545;
+  }
+  
+  button.edit-button {
+    background-color: #ffc107;
+    margin-right: 5px;
+  }
+  
+  button.complete-button {
+    background-color: #28a745;
+    margin-right: 5px;
+  }
+  
